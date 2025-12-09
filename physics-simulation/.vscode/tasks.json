@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Backend",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["compile"],
+            "group": "build",
+            "problemMatcher": ["$javac"]
+        },
+        {
+            "label": "Run Backend",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["spring-boot:run"],
+            "group": "test",
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean Build",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["clean", "install", "-DskipTests"],
+            "group": "build",
+            "problemMatcher": ["$javac"]
+        },
+        {
+            "label": "Run Tests",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["test"],
+            "group": "test",
+            "problemMatcher": ["$javac"]
+        },
+        {
+            "label": "Package JAR",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["package", "-DskipTests"],
+            "group": "build",
+            "problemMatcher": ["$javac"]
+        }
+    ]
+}

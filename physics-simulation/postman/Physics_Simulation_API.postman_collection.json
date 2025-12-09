@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "physics-simulation-api",
+		"name": "Physics Simulation API",
+		"description": "API collection for the Physics Simulation Engine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080"
+		}
+	],
+	"item": [
+		{
+			"name": "Objects",
+			"item": [
+				{
+					"name": "Create Circle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"circle\",\n    \"radius\": 15.0,\n    \"mass\": 2.0,\n    \"position\": [100, 100],\n    \"velocity\": [0, 0]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/objects/create",
+							"host": ["{{base_url}}"],
+							"path": ["objects", "create"]
+						}
+					}
+				},
+				{
+					"name": "Create Rectangle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"rectangle\",\n    \"width\": 50.0,\n    \"height\": 30.0,\n    \"mass\": 5.0,\n    \"position\": [200, 200],\n    \"velocity\": [0, 0]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/objects/create",
+							"host": ["{{base_url}}"],
+							"path": ["objects", "create"]
+						}
+					}
+				},
+				{
+					"name": "Create Square",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"square\",\n    \"sideLength\": 40.0,\n    \"mass\": 3.0,\n    \"position\": [300, 150],\n    \"velocity\": [0, 0]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/objects/create",
+							"host": ["{{base_url}}"],
+							"path": ["objects", "create"]
+						}
+					}
+				},
+				{
+					"name": "Get All Objects",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/objects/all",
+							"host": ["{{base_url}}"],
+							"path": ["objects", "all"]
+						}
+					}
+				},
+				{
+					"name": "Get Object by ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/objects/1",
+							"host": ["{{base_url}}"],
+							"path": ["objects", "1"]
+						}
+					}
+				},
+				{
+					"name": "Update Object",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mass\": 10.0,\n    \"position\": [150, 150],\n    \"velocity\": [5, 0]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/objects/1",
+							"host": ["{{base_url}}"],
+							"path": ["objects", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Object",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "{{base_url}}/objects/1",
+							"host": ["{{base_url}}"],
+							"path": ["objects", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Forces",
+			"item": [
+				{
+					"name": "Apply Force",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"force\": [50.0, -10.0]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/forces/apply",
+							"host": ["{{base_url}}"],
+							"path": ["forces", "apply"]
+						}
+					}
+				},
+				{
+					"name": "Apply Impulse",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"impulse\": [100.0, 0]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/forces/impulse",
+							"host": ["{{base_url}}"],
+							"path": ["forces", "impulse"]
+						}
+					}
+				},
+				{
+					"name": "Set Gravity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gravity\": [0, 9.81]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/forces/gravity",
+							"host": ["{{base_url}}"],
+							"path": ["forces", "gravity"]
+						}
+					}
+				},
+				{
+					"name": "Get Gravity",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/forces/gravity",
+							"host": ["{{base_url}}"],
+							"path": ["forces", "gravity"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Simulation",
+			"item": [
+				{
+					"name": "Start Simulation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{base_url}}/simulation/start",
+							"host": ["{{base_url}}"],
+							"path": ["simulation", "start"]
+						}
+					}
+				},
+				{
+					"name": "Pause Simulation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{base_url}}/simulation/pause",
+							"host": ["{{base_url}}"],
+							"path": ["simulation", "pause"]
+						}
+					}
+				},
+				{
+					"name": "Reset Simulation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{base_url}}/simulation/reset",
+							"host": ["{{base_url}}"],
+							"path": ["simulation", "reset"]
+						}
+					}
+				},
+				{
+					"name": "Step Simulation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dt\": 0.016\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/simulation/step",
+							"host": ["{{base_url}}"],
+							"path": ["simulation", "step"]
+						}
+					}
+				},
+				{
+					"name": "Get Simulation State",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/simulation/state",
+							"host": ["{{base_url}}"],
+							"path": ["simulation", "state"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Scene",
+			"item": [
+				{
+					"name": "Save Scene",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filename\": \"scene.json\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/scene/save",
+							"host": ["{{base_url}}"],
+							"path": ["scene", "save"]
+						}
+					}
+				},
+				{
+					"name": "Load Scene",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filename\": \"scene.json\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/scene/load",
+							"host": ["{{base_url}}"],
+							"path": ["scene", "load"]
+						}
+					}
+				},
+				{
+					"name": "Get Current Scene",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/scene/current",
+							"host": ["{{base_url}}"],
+							"path": ["scene", "current"]
+						}
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.project.sourcePaths": ["src/main/java"],
+    "java.project.outputPath": "target/classes",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "files.exclude": {
+        "**/target": true,
+        "**/.git": true,
+        "**/.mvn": false
+    },
+    "spring-boot.ls.java.vmargs": "-Xmx1024m"
+}

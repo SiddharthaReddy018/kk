@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run Physics Simulation Backend",
+            "request": "launch",
+            "mainClass": "com.physics.PhysicsSimulationApplication",
+            "projectName": "physics-simulation",
+            "args": "",
+            "vmArgs": ""
+        },
+        {
+            "type": "java",
+            "name": "Run JavaFX Client",
+            "request": "launch",
+            "mainClass": "com.physics.client.PhysicsClientApp",
+            "projectName": "physics-client",
+            "vmArgs": "--module-path ${env:PATH_TO_FX} --add-modules javafx.controls,javafx.graphics"
+        }
+    ]
+}
