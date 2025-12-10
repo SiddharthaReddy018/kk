@@ -12,5 +12,7 @@ public class PhysicsSimulationApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(PhysicsSimulationApplication.class, args);
+        System.out.println("hi");
     }
 }
+// what is this 
